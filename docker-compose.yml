@@ -1,0 +1,20 @@
+services:
+  instagram-mcp:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      INSTAGRAM_HOST: 0.0.0.0
+      INSTAGRAM_DB: /app/data/instagram.sqlite
+    ports:
+      - "127.0.0.1:4840:4840"
+    volumes:
+      - instagram-state:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  instagram-state:

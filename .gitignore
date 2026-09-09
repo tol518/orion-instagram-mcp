@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+meta-token.env
+*.token.env
+*.sqlite*
+coverage/
+exports/
